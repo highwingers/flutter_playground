@@ -12,7 +12,7 @@ class Location extends StatefulWidget {
 
 class _LocationState extends State<Location> {
   String location = 'Unknown';
-
+  String locationLbl = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,10 @@ class _LocationState extends State<Location> {
         children: [
           Center(child: ElevatedButton(onPressed: () async {
             await getLocation();
-          }, child: Text('Get Location')))
+          }, child: Text('Get Location'))),
+          if(locationLbl=='loading')  CircularProgressIndicator(),
+          Text('$locationLbl'),
+
         ],
       )
     );
@@ -34,12 +37,18 @@ class _LocationState extends State<Location> {
 
   Future<void> getLocation() async {
     // Check permissions
+
+    setState(() {
+      locationLbl='loading';
+    });
+
     var permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
         setState(() {
           location = 'Location permissions are denied';
+          locationLbl='';
         });
         return;
       }
@@ -48,6 +57,7 @@ class _LocationState extends State<Location> {
     if (permission == LocationPermission.deniedForever) {
       setState(() {
         location = 'Location permissions are permanently denied.';
+        locationLbl='';
       });
       return;
     }
@@ -72,10 +82,15 @@ class _LocationState extends State<Location> {
           ${place.locality}, ${place.administrativeArea},
           ${place.country} - ${place.postalCode}
           ''';
-
-      print(address);
+      setState(() {
+        locationLbl = address;
+      });
+      return;
     }
 
+    setState(() {
+      locationLbl='';
+    });
     return;
   }
 }
