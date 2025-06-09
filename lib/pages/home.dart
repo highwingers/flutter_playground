@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_playground/pages/thankyou.dart';
+import 'package:flutter_playground/pages/actionmenu.dart';
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -17,6 +18,7 @@ class _HomeState extends State<Home> {
     return  Scaffold(
       appBar:  AppBar(
         title: Text("Dart Playground"),
+        actions: actionMenu(context),
       ) ,
      body: Padding(
        padding: const EdgeInsets.all(8.0),

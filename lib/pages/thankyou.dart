@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/pages/actionmenu.dart';
+
 class ThankYou extends StatelessWidget {
 
   final String name;
@@ -11,6 +13,7 @@ class ThankYou extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Thank You ${name}"),
+        actions: actionMenu(context),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
