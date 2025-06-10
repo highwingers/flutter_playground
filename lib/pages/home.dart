@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/auth/auth_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_playground/pages/thankyou.dart';
 import 'package:flutter_playground/pages/actionmenu.dart';
@@ -17,7 +18,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar:  AppBar(
-        title: Text("Dart Playground"),
+        leading: Container(),
+        title: AuthService().getCurrentUser()?.email==null? Text("Dart Playground"):Text(AuthService().getCurrentUser()?.email??""),
         actions: actionMenu(context),
       ) ,
      body: Padding(
