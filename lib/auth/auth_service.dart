@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 // Install the firebase CLI
 // npm install -g firebase-tools
@@ -42,4 +43,31 @@ class AuthService {
     return await _firebaseAuth.signInWithCredential(credential);
 
     }
+
+
+  Future<UserCredential?> signInWithApple() async {
+
+
+try {
+
+
+    final appleCred = await SignInWithApple.getAppleIDCredential(scopes: [
+      AppleIDAuthorizationScopes.email,
+      AppleIDAuthorizationScopes.fullName
+    ],);
+
+    final oAuthCred = OAuthProvider("apple.com").credential(
+      idToken: appleCred.identityToken,
+      accessToken:  appleCred.authorizationCode,
+    );
+    var r = await _firebaseAuth.signInWithCredential(oAuthCred);
+    print(_firebaseAuth.currentUser?.uid);
+    return r;
+
+} catch(e) {
+  print("Error: $e")  ;
+}
+  }
+
+
 }
