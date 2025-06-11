@@ -4,15 +4,13 @@ import 'package:flutter_playground/pages/actionmenu.dart';
 class ThankYou extends StatelessWidget {
 
   final String name;
-  ThankYou({required this.name}){
-
-  }
+  const ThankYou({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Thank You ${name}"),
+        title: Text("Thank You $name"),
         actions: actionMenu(context),
       ),
       body: Padding(

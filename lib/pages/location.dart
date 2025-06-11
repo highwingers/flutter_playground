@@ -28,7 +28,7 @@ class _LocationState extends State<Location> {
             await getLocation();
           }, child: Text('Get Location'))),
           if(locationLbl=='loading')  CircularProgressIndicator(),
-          Text('$locationLbl'),
+          Text(locationLbl),
 
         ],
       )

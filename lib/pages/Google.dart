@@ -21,17 +21,17 @@ class _GoogleState extends State<Google> {
       body: Column(
         children: [
           ElevatedButton(onPressed: () async {
-            AuthService _auth = AuthService();
-            await _auth.signInWithGoogle();
+            AuthService auth = AuthService();
+            await auth.signInWithGoogle();
 
-            if(_auth.getCurrentUser()?.email!=null) {
-              print(_auth.getCurrentUser()?.uid);
+            if(auth.getCurrentUser()?.email!=null) {
+              print(auth.getCurrentUser()?.uid);
               Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
             }
 
 
             setState(() {
-              _email = _auth.getCurrentUser()?.email.toString();
+              _email = auth.getCurrentUser()?.email.toString();
             });
 
           },   child: Text("Google Sign-in")),
