@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyC2A3lR-FH6toO4S8ueRYcGEfji49oHjAM',
-    appId: '1:139610410740:android:a30a4bd7dfd2c26be958a1',
+    appId: '1:139610410740:android:1d76673c94cc92f9e958a1',
     messagingSenderId: '139610410740',
     projectId: 'ntfy-fcm-2fcf1',
     storageBucket: 'ntfy-fcm-2fcf1.firebasestorage.app',
@@ -59,12 +59,13 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCwXw8ItSHdeB4g_iXU1rXII4zIPF2vSjg',
-    appId: '1:139610410740:ios:e6a328283d42f521e958a1',
+    appId: '1:139610410740:ios:ed9e664193beffc4e958a1',
     messagingSenderId: '139610410740',
     projectId: 'ntfy-fcm-2fcf1',
     storageBucket: 'ntfy-fcm-2fcf1.firebasestorage.app',
-    androidClientId: '139610410740-itrdqcfm2j2omj0afva5nc8h3hosbhpj.apps.googleusercontent.com',
-    iosClientId: '139610410740-7d4uhhhdfbil27a5al47mv18hk0gkror.apps.googleusercontent.com',
-    iosBundleId: 'com.example.flutterPlayground',
+    androidClientId: '139610410740-6tvdfh24tiv2cojvcoh3vt5l3tg3ibib.apps.googleusercontent.com',
+    iosClientId: '139610410740-kp8oj0glh0clqsnqtiunkf8auv398u34.apps.googleusercontent.com',
+    iosBundleId: 'www.tutorials.flutterplayground',
   );
+
 }

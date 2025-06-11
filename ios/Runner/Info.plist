@@ -5,7 +5,7 @@
     <key>GIDClientID</key>
     <!-- TODO Replace this value: -->
     <!-- Copied from GoogleService-Info.plist key CLIENT_ID -->
-    <string>139610410740-7d4uhhhdfbil27a5al47mv18hk0gkror.apps.googleusercontent.com</string>
+    <string>139610410740-kp8oj0glh0clqsnqtiunkf8auv398u34.apps.googleusercontent.com</string>
 
     <!-- Put me in the [my_project]/ios/Runner/Info.plist file -->
     <!-- Google Sign-in Section -->
@@ -18,7 +18,7 @@
     		<array>
     			<!-- TODO Replace this value: -->
     			<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
-    			<string>com.googleusercontent.apps.139610410740-7d4uhhhdfbil27a5al47mv18hk0gkror</string>
+    			<string>com.googleusercontent.apps.139610410740-kp8oj0glh0clqsnqtiunkf8auv398u34</string>
     		</array>
     	</dict>
     </array>
