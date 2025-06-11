@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
     return  Scaffold(
       appBar:  AppBar(
         leading: Container(),
-        title: AuthService().getCurrentUser()?.email==null? Text("Dart Playground"):Text(AuthService().getCurrentUser()?.email??""),
+        title: AuthService().getCurrentUser()?.uid==null? Text("Dart Playground"):Text(AuthService().getCurrentUser()?.uid??""),
         actions: actionMenu(context),
       ) ,
      body: Padding(
