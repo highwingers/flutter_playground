@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/auth/auth_service.dart';
+import 'package:flutter_playground/pages/amazon.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_playground/pages/thankyou.dart';
 import 'package:flutter_playground/pages/actionmenu.dart';
@@ -31,6 +32,15 @@ class _HomeState extends State<Home> {
       if (uri.host == 'open') {
         final foo = uri.queryParameters['foo'];
         final baz = uri.queryParameters['baz'];
+
+        if (foo == 'amazon') {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => Amazon()),
+            );
+          });
+        }
       }
     });
   }
