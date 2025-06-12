@@ -54,7 +54,8 @@ try {
     final appleCred = await SignInWithApple.getAppleIDCredential(scopes: [
       AppleIDAuthorizationScopes.email,
       AppleIDAuthorizationScopes.fullName
-    ],);
+    ],
+    webAuthenticationOptions: WebAuthenticationOptions(clientId: 'www.tutorials.flutterplayground.service', redirectUri: Uri.parse('https://ntfy-fcm-2fcf1.firebaseapp.com/__/auth/handler')));
 
     final oAuthCred = OAuthProvider("apple.com").credential(
       idToken: appleCred.identityToken,
