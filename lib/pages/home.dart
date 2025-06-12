@@ -30,14 +30,14 @@ class _HomeState extends State<Home> {
       print('Incoming link: ${uri.toString()}');
 
       if (uri.host == 'open') {
-        final foo = uri.queryParameters['foo'];
+        final String foo = uri.queryParameters['foo'] ?? "";
         final baz = uri.queryParameters['baz'];
 
         if (foo == 'amazon') {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (_) => Amazon()),
+              MaterialPageRoute(builder: (_) => Amazon(foo: foo)),
             );
           });
         }
