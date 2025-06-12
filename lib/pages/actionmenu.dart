@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/auth/auth_service.dart';
+import 'package:flutter_playground/pages/amazon.dart';
 import 'package:flutter_playground/pages/home.dart';
 import 'package:flutter_playground/pages/location.dart';
 import 'package:flutter_playground/pages/Google.dart';
@@ -30,6 +31,10 @@ List<Widget> actionMenu(BuildContext context) {
         await AuthService().logOut();
         Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
       }
+      if(value=='amazon') {
+        await AuthService().logOut();
+        Navigator.push(context, MaterialPageRoute(builder: (_) => Amazon()));
+      }
     },
     itemBuilder: (BuildContext context) {
       return [
@@ -37,6 +42,7 @@ List<Widget> actionMenu(BuildContext context) {
         PopupMenuItem(value: 'location', child: Text('Location')),
         PopupMenuItem(value: 'google', child: Text('Google')),
         PopupMenuItem(value: 'apple', child: Text('Apple')),
+        PopupMenuItem(value: 'amazon', child: Text('Amazon')),
         PopupMenuItem(value: 'logout', child: Text('Logout')),
       ];
     },

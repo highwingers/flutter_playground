@@ -71,5 +71,16 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
     <string>We need your location to show your position on the map.</string>
 
+  <key>CFBundleURLTypes</key>
+  <array>
+  <dict>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <string>myapp</string>
+    </array>
+  </dict>
+</array>
+
+
 </dict>
 </plist>
