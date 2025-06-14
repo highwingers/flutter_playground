@@ -48,7 +48,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
+        backgroundColor: Colors.grey[300],
         leading: Container(),
         title: AuthService().getCurrentUser()?.uid == null
             ? Text("Dart Playground")
