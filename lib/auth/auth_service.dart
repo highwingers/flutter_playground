@@ -41,34 +41,17 @@ class AuthService {
     );
 
     return await _firebaseAuth.signInWithCredential(credential);
-
-    }
-
-
-  Future<UserCredential?> signInWithApple() async {
-
-
-try {
-
-
-    final appleCred = await SignInWithApple.getAppleIDCredential(scopes: [
-      AppleIDAuthorizationScopes.email,
-      AppleIDAuthorizationScopes.fullName
-    ],
-    webAuthenticationOptions: WebAuthenticationOptions(clientId: 'www.tutorials.flutterplayground.service', redirectUri: Uri.parse('https://ntfy-fcm-2fcf1.firebaseapp.com/__/auth/handler')));
-
-    final oAuthCred = OAuthProvider("apple.com").credential(
-      idToken: appleCred.identityToken,
-      accessToken:  appleCred.authorizationCode,
-    );
-    var r = await _firebaseAuth.signInWithCredential(oAuthCred);
-    print(_firebaseAuth.currentUser?.uid);
-    return r;
-
-} catch(e) {
-  print("Error: $e")  ;
-}
   }
 
-
+  Future<UserCredential?> signInWithApple() async {
+    try {
+      final appleProvider = AppleAuthProvider();
+      final UserCredential userCredential = await _firebaseAuth
+          .signInWithProvider(appleProvider);
+      print('User Within Service is signed in: ${userCredential.user?.uid}');
+      return userCredential;
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
 }
