@@ -24,6 +24,13 @@ class _AppleState extends State<Apple> {
               SignInWithAppleButton(
                 onPressed: () async {
                   await AuthService().signInWithApple();
+                  if (AuthService().getCurrentUser()?.uid != null) {
+                    print(AuthService().getCurrentUser()?.uid);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => Home()),
+                    );
+                  }
                 },
               ),
             ],
