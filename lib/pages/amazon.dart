@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Amazon extends StatefulWidget {
   final String? foo;
@@ -42,11 +42,21 @@ class _AmazonState extends State<Amazon> {
                       final authUrl =
                           'https://www.amazon.com/ap/oa?client_id=$clientId&scope=profile&response_type=code&redirect_uri=$redirectUrl';
 
-                      final result = await FlutterWebAuth2.authenticate(
+                      /*                       final result = await FlutterWebAuth2.authenticate(
                         url: authUrl,
                         callbackUrlScheme:
                             'myapp', // Important to match your backend scheme
-                      );
+                      ); */
+
+                      final uri = Uri.parse(authUrl);
+                      if (await canLaunchUrl(uri)) {
+                        await launchUrl(
+                          uri,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      } else {
+                        throw 'Could not launch $authUrl';
+                      }
                     },
                     child: Text('Amazon'),
                   ),
