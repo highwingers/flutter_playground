@@ -6,7 +6,7 @@ class Amazon extends StatefulWidget {
   String? email; // Optional email parameter, if needed.
   // This is just a placeholder for the foo parameter.
 
-  Amazon({this.foo, this.email, Key? key}) : super(key: key) {
+  Amazon({this.foo, this.email, super.key}) {
     print('I got the value $email');
   }
 
@@ -15,6 +15,7 @@ class Amazon extends StatefulWidget {
 }
 
 class _AmazonState extends State<Amazon> {
+  @override
   void initState() {
     super.initState();
     // You can perform any initialization here if needed.
@@ -44,7 +45,7 @@ class _AmazonState extends State<Amazon> {
                       final result = await FlutterWebAuth2.authenticate(
                         url: authUrl,
                         callbackUrlScheme:
-                            'https', // Important to match your backend scheme
+                            'myapp', // Important to match your backend scheme
                       );
                     },
                     child: Text('Amazon'),

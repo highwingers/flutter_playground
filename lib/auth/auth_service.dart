@@ -53,5 +53,6 @@ class AuthService {
     } catch (e) {
       print("Error: $e");
     }
+    return null;
   }
 }
