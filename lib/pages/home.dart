@@ -24,6 +24,13 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
 
+    // Handle link when app is launched via deep link (cold start)
+    AppLinks().getInitialLink().then((uri) {
+      if (uri != null) {
+        print("11111111111111111111111");
+      }
+    });
+
     _sub = AppLinks().uriLinkStream.listen((uri) {
       // e.g. myapp://open?foo=bar&baz=qux
 
