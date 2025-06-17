@@ -25,7 +25,15 @@ class _GoogleState extends State<Google> {
               ElevatedButton(
                 onPressed: () async {
                   AuthService auth = AuthService();
-                  await auth.signInWithGoogle();
+
+                  // Sign in with Google
+                  var result = await auth.GoogleSignInWithoutFireBase();
+
+                  setState(() {
+                    _email = result?.email;
+                  });
+
+                  /*                   await auth.signInWithGoogle();
 
                   if (auth.getCurrentUser()?.email != null) {
                     print(auth.getCurrentUser()?.uid);
@@ -33,11 +41,10 @@ class _GoogleState extends State<Google> {
                       context,
                       MaterialPageRoute(builder: (_) => Home()),
                     );
-
                     setState(() {
                       _email = auth.getCurrentUser()?.email.toString();
                     });
-                  }
+                  } */
                 },
                 child: Text("Google Sign-in"),
               ),

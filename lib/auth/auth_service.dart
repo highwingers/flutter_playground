@@ -43,6 +43,21 @@ class AuthService {
     return await _firebaseAuth.signInWithCredential(credential);
   }
 
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    // Optional clientId
+    // clientId: 'your-client_id.apps.googleusercontent.com',
+    scopes: <String>['email'],
+  );
+  Future<GoogleSignInAccount?> GoogleSignInWithoutFireBase() async {
+    try {
+      var google = await _googleSignIn.signIn();
+      print('User signed in with Google. : ${google?.email}');
+      return google;
+    } catch (error) {
+      print(error);
+    }
+  }
+
   Future<UserCredential?> signInWithApple() async {
     try {
       final appleProvider = AppleAuthProvider();
