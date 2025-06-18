@@ -21,10 +21,18 @@
     			<string>com.googleusercontent.apps.139610410740-kp8oj0glh0clqsnqtiunkf8auv398u34</string>
     		</array>
     	</dict>
+
+		  <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>myapp</string>
+            </array>
+        </dict>
+
     </array>
     <!-- End of the Google Sign-in Section -->
-	<key>GIDClientID</key>
-	<string>139610410740-kp8oj0glh0clqsnqtiunkf8auv398u34.apps.googleusercontent.com</string>
 
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -73,15 +81,8 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
     <string>We need your location to show your position on the map.</string>
 
-  <key>CFBundleURLTypes</key>
-  <array>
-  <dict>
-    <key>CFBundleURLSchemes</key>
-    <array>
-      <string>myapp</string>
-    </array>
-  </dict>
-</array>
+
+
 
 
 </dict>
