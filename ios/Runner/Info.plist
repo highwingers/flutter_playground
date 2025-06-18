@@ -23,6 +23,8 @@
     	</dict>
     </array>
     <!-- End of the Google Sign-in Section -->
+	<key>GIDClientID</key>
+	<string>139610410740-kp8oj0glh0clqsnqtiunkf8auv398u34.apps.googleusercontent.com</string>
 
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
